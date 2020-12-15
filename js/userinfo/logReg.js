@@ -19,6 +19,7 @@
                 console.log(result)
                 if (result.code === 200) {
                     alert("login success")
+                    $("#createTopicDiv").show()
                 }
             }
         })
