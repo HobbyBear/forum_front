@@ -1,4 +1,5 @@
-(function userInfo() {
+(function userInfo($) {
+
 
     $("#loginBtn").click(function () {
         let user = {};
@@ -12,14 +13,15 @@
             dataType: 'json',
             contentType: "application/json;charset=UTF-8",
             timeout: 1000,
-            error: function (res) {
-                alert("login fail")
+            xhrFields: {
+                withCredentials: true
             },
             success: function (result) {
                 console.log(result)
                 if (result.code === 200) {
-                    alert("login success")
-                    $("#createTopicDiv").show()
+                    window.location.reload()
+                }else {
+                    alert(result.msg)
                 }
             }
         })
@@ -37,16 +39,23 @@
             dataType: 'json',
             contentType: "application/json;charset=UTF-8",
             timeout: 1000,
-            error: function (res) {
-                alert("reg fail")
+            xhrFields: {
+                withCredentials: true
             },
             success: function (result) {
                 console.log(result)
                 if (result.code === 200) {
                     alert("reg success")
+                }else {
+                    alert(result.msg)
                 }
             }
         })
     })
 
-}());
+
+    // todo 退出
+
+
+
+}(window.$));
