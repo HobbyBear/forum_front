@@ -1,9 +1,51 @@
 $(function () {
 
 
-    function topicList() {
+    function topicList(categoryId, topicName) {
 
+        let topicReq = {}
+        topicReq.categoryId = categoryId
+        topicReq.topicName = topicName
 
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:8081/topic/list',
+            dataType: 'json',
+            data: JSON.stringify(topicReq),
+            contentType: "application/json;charset=UTF-8",
+            timeout: 1000,
+            xhrFields: {
+                withCredentials: true
+            },
+            success: function (result) {
+                console.log(result)
+                if (result.code === 200) {
+                    let htmlText = ""
+                    for (let i = 0; i < result.data.topicListElemList.length; i++) {
+                        htmlText += `
+                            <div style="background-color:#EFF7FF; margin-top: 50px;"
+                     class="d-flex flex-column justify-content-start" data-topicId=` + result.data.topicListElemList[i].topicId + `>
+                    <div class="d-flex flex-row">
+                        <div class="align-self-start">
+                            <img src="` + result.data.topicListElemList[i].avatar + `" height="100px" width="100px">
+                        </div>
+                        <div>`+result.data.topicListElemList[i].createTime+`</div>
+                    </div>
+                   
+                    <div style="font-family: 'Courier New',monospace;font-size: medium;font-weight: bolder">
+                        `+result.data.topicListElemList[i].topicName+`
+                    </div>
+                    <div>answer num `+result.data.topicListElemList[i].answerNum+`</div>    
+                </div>
+                        `
+                    }
+                    $("#topicListDiv").html(htmlText)
+
+                } else {
+                    alert(result.msg)
+                }
+            }
+        })
 
     }
 
@@ -30,7 +72,7 @@ $(function () {
             success: function (result) {
                 console.log(result)
                 if (result.code === 200) {
-                    topicList()
+                    topicList(0,"")
                 } else {
                     alert(result.msg)
                 }
@@ -82,5 +124,6 @@ $(function () {
 
     categoryList()
 
+    topicList(0,"")
 
 })

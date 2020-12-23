@@ -107,6 +107,35 @@
                     </div>
                 </form>
             </div>
+            <div id="topicListDiv">
+
+                <div id="topicElem" style="background-color:#EFF7FF; margin-top: 50px;"
+                     class="d-flex flex-column justify-content-start">
+                    <div class="d-flex flex-row">
+                        <div class="align-self-start">
+                            <img src="img/OIP.jfif" height="100px" width="100px">
+                        </div>
+                    </div>
+                    <div style="font-family: 'Courier New',monospace;font-size: medium;font-weight: bolder">
+                        I think the best way to learn english is to communicate with native speakers.
+                    </div>
+
+                </div>
+
+                <div id="topicElem2" style="background-color:#EFF7FF; margin-top: 50px"
+                     class="d-flex flex-column justify-content-start">
+                    <div class="d-flex flex-row">
+                        <div class="align-self-start">
+                            <img src="img/OIP.jfif" height="100px" width="100px">
+                        </div>
+                    </div>
+                    <div style="font-family: 'Courier New',monospace;font-size: medium;font-weight: bolder">
+                        I think the best way to learn english .
+                    </div>
+
+                </div>
+
+            </div>
         </div>
         <div class="col-4">
             <div class="d-flex flex-column">
@@ -125,8 +154,12 @@
                         <p class="logFont" id="registerBtn">register</p>
                     </div>
                 </form>
-                <div class="p-2 bg-secondary" id="userInfoVo" style="min-height: 300px;display: none" >
-                    user A
+                <div style="display:none;" id="userInfoVo">
+                    <div class="p-2 d-flex flex-column justify-content-center"
+                         style="min-height: 300px;">
+                        <div style="text-align: center"><img src="img/OIP.jfif"/></div>
+                        <div id="usernameDiv" style="text-align: center;margin-top: 10px"></div>
+                    </div>
                 </div>
                 <div class="p-2 bg-secondary" style="min-height: 300px">hot topic</div>
             </div>
@@ -146,8 +179,8 @@
                 $("#login_form").hide()
                 $("#userInfoVo").show()
                 $("#createTopicDiv").show()
-                console.log(userInfo.username)
-            }else {
+                console.log(userInfo)
+            } else {
                 $("#login_form").show()
                 $("#userInfoVo").hide()
                 $("#createTopicDiv").hide()
