@@ -23,7 +23,7 @@ $(function () {
                     let htmlText = ""
                     for (let i = 0; i < result.data.topicListElemList.length; i++) {
                         htmlText += `
-                            <div style="background-color:#EFF7FF; margin-top: 50px;"
+                            <div style="margin-top: 50px; border-bottom: 2px solid lightgray"
                      class="d-flex flex-column justify-content-start" data-topicId=` + result.data.topicListElemList[i].topicId + `>
                     <div class="d-flex flex-row">
                         <div class="align-self-start">
