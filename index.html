@@ -31,39 +31,20 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand titleFont" href="#" style="color: red">Sunshine</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    <a class="navbar-brand titleFont" href="./index.html" style="color: red">Sunshine</a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Link</a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    Dropdown
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchTopic">Search</button>
         </form>
     </div>
 </nav>
@@ -109,32 +90,6 @@
             </div>
             <div id="topicListDiv">
 
-                <div id="topicElem" style="background-color:#EFF7FF; margin-top: 50px;"
-                     class="d-flex flex-column justify-content-start">
-                    <div class="d-flex flex-row">
-                        <div class="align-self-start">
-                            <img src="img/OIP.jfif" height="100px" width="100px">
-                        </div>
-                    </div>
-                    <div style="font-family: 'Courier New',monospace;font-size: medium;font-weight: bolder">
-                        I think the best way to learn english is to communicate with native speakers.
-                    </div>
-
-                </div>
-
-                <div id="topicElem2" style="background-color:lightgray; margin-top: 50px"
-                     class="d-flex flex-column justify-content-start">
-                    <div class="d-flex flex-row">
-                        <div class="align-self-start">
-                            <img src="img/OIP.jfif" height="100px" width="100px">
-                        </div>
-                    </div>
-                    <div style="font-family: 'Courier New',monospace;font-size: medium;font-weight: bolder">
-                        I think the best way to learn english .
-                    </div>
-
-                </div>
-
             </div>
         </div>
         <div class="col-4">
@@ -157,11 +112,13 @@
                 <div style="display:none;" id="userInfoVo">
                     <div class="p-2 d-flex flex-column justify-content-center"
                          style="min-height: 300px;">
-                        <div style="text-align: center"><img src="img/OIP.jfif"/></div>
-                        <div id="usernameDiv" style="text-align: center;margin-top: 10px"></div>
+                        <div style="text-align: center"><img class="user_avator" src=""/></div>
+                        <div id="usernameDiv" style="text-align: center;margin-top: 10px">
+
+                        </div>
                     </div>
                 </div>
-                <div class="p-2 bg-secondary" style="min-height: 300px">hot topic</div>
+<!--                <div class="p-2 bg-secondary" style="min-height: 300px">hot topic</div>-->
             </div>
         </div>
     </div>
@@ -176,6 +133,8 @@
         $.getUserInfo(function (userInfo) {
             console.log($isLogin)
             if ($isLogin) {
+                $("#userInfoVo .user_avator").attr("src",userInfo.avatar)
+                $("#usernameDiv").html("<h4>"+userInfo.username+"</h4>")
                 $("#login_form").hide()
                 $("#userInfoVo").show()
                 $("#createTopicDiv").show()

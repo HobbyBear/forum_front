@@ -15,55 +15,35 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand titleFont" href="#" style="color: red">Sunshine</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    <a class="navbar-brand titleFont" href="./index.html" style="color: red">Sunshine</a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Link</a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    Dropdown
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+<!--        <form class="form-inline my-2 my-lg-0">-->
+<!--            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+<!--        </form>-->
     </div>
 </nav>
-
 <div class="container-xl">
     <div class="col-md-8" style="width: 700px;margin: 0 auto">
         <div id="topicTitleShow"
-             style="font-weight: bolder ;font-size: 14px;text-align: center;min-height: 300px;background-color:lightgray">
-            <h1>how to get along with ordinary workmates?</h1>
+             style="font-weight: bolder ;font-size: 14px;text-align: center;min-height: 300px; ;
+             background-image: url('http://qlsu57ex5.hn-bkt.clouddn.com/back_gufeng.jfif');background-size: cover;background-repeat: no-repeat">
         </div>
         <div>
             <input type="file" id="uploadImg">
-            <button class="btn btn-info" id="answerBtn">answer</button>
+            <button class="btn btn-warning" id="answerBtn">answer</button>
         </div>
         <div id="answerContent" contenteditable="true"
-             style="min-height: 600px; border-top: 3px solid gray;margin-top: 30px;outline: none">
+             style="min-height: 600px; border-top: 1px solid gray;margin-top: 30px;outline: none">
             please complete your answer...
 
         </div>
@@ -75,6 +55,25 @@
     $(function () {
 
         let topicId = $.getQueryString("topic_id")
+
+        $.ajax({
+            type: 'GET',
+            url: 'http://localhost:8081/topic?topicId=' + topicId,
+            contentType: "application/json;charset=UTF-8",
+            timeout: 1000,
+            xhrFields: {
+                withCredentials: true
+            },
+            success: function (result) {
+                console.log(result)
+                if (result.code === 200) {
+                    $("#topicTitleShow").html(`<h1 style="font: italic 2em Georgia, serif;">` + result.data.topicName + `</h1>`)
+                } else {
+                    alert(result.msg)
+                }
+            }
+        })
+
 
 
 

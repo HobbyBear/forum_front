@@ -29,7 +29,10 @@ $(function () {
                         <div class="align-self-start">
                             <img src="` + result.data.topicListElemList[i].avatar + `" height="100px" width="100px">
                         </div>
-                        <div>` + result.data.topicListElemList[i].createTime + `</div>
+                        <div>
+                        <div>`+result.data.topicListElemList[i].username +`</div>
+                        <div>` + $.timestampToTime(result.data.topicListElemList[i].createTime) + `</div>
+                        </div>
                     </div>
                    
                     <div style="font-family: 'Courier New',monospace;font-size: medium;font-weight: bolder">
