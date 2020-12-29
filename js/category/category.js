@@ -23,23 +23,29 @@ $(function () {
                     let htmlText = ""
                     for (let i = 0; i < result.data.topicListElemList.length; i++) {
                         htmlText += `
-                            <div style="margin-top: 50px; border-bottom: 2px solid lightgray"
-                     class="d-flex flex-column justify-content-start" data-topicId=` + result.data.topicListElemList[i].topicId + `>
+                            <div name="topicElem" style="margin-top: 50px; border-bottom: 2px solid lightgray"
+                     class="d-flex flex-column justify-content-start" data-topicid=` + result.data.topicListElemList[i].topicId + `>
                     <div class="d-flex flex-row">
                         <div class="align-self-start">
                             <img src="` + result.data.topicListElemList[i].avatar + `" height="100px" width="100px">
                         </div>
-                        <div>`+result.data.topicListElemList[i].createTime+`</div>
+                        <div>` + result.data.topicListElemList[i].createTime + `</div>
                     </div>
                    
                     <div style="font-family: 'Courier New',monospace;font-size: medium;font-weight: bolder">
-                        `+result.data.topicListElemList[i].topicName+`
+                        ` + result.data.topicListElemList[i].topicName + `
                     </div>
-                    <div>answer num `+result.data.topicListElemList[i].answerNum+`</div>    
+                    <div>answer num ` + result.data.topicListElemList[i].answerNum + `</div>    
                 </div>
                         `
                     }
                     $("#topicListDiv").html(htmlText)
+
+                    $(`[name="topicElem"]`).click(function () {
+                        console.log("点击到的topic_id"+$(this).data("topicid"))
+                        let topicId = $(this).data("topicid")
+                         window.location.href = "./topic_detail.html?topic_id=" + topicId
+                    })
 
                 } else {
                     alert(result.msg)
@@ -72,7 +78,7 @@ $(function () {
             success: function (result) {
                 console.log(result)
                 if (result.code === 200) {
-                    topicList(0,"")
+                    topicList(0, "")
                 } else {
                     alert(result.msg)
                 }
@@ -124,6 +130,6 @@ $(function () {
 
     categoryList()
 
-    topicList(0,"")
+    topicList(0, "")
 
 })

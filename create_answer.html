@@ -64,14 +64,20 @@
         </div>
         <div id="answerContent" contenteditable="true"
              style="min-height: 600px; border-top: 3px solid gray;margin-top: 30px;outline: none">
-            请输入正文
+            please complete your answer...
 
         </div>
     </div>
 </div>
 </body>
+<script src="js/userinfo/common.js"></script>
 <script>
     $(function () {
+
+        let topicId = $.getQueryString("topic_id")
+
+
+
         $("#uploadImg").change(function () {
             console.log("点击了文件")
             // 上传图片
@@ -106,8 +112,7 @@
 
             answer.content = $("#answerContent").html()
             answer.contentText = $("#answerContent").html()
-            // todo
-            answer.topicId = 1
+            answer.topicId = topicId
 
             console.log("获取到的answer为:", answer)
 

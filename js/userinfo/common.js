@@ -1,10 +1,10 @@
-(function ($){
+(function ($) {
 
     window.$isLogin = false
 
     $.extend({
 
-        getUserInfo : function (callBack){
+        getUserInfo: function (callBack) {
             $.ajax({
                 type: 'GET',
                 url: 'http://localhost:8081/user',
@@ -19,16 +19,24 @@
                         window.$isLogin = true
                         callBack(result.data)
                         return result.data
-                    }else {
+                    } else {
                         console.log(result)
                     }
                 },
-                error: function (){
+                error: function () {
                     callBack()
                 }
             })
-        }
+        },
 
+        getQueryString: function (name) {
+            let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            let r = window.location.search.substr(1).match(reg);
+            if (r != null) {
+                return decodeURIComponent(r[2]);
+            }
+            return null;
+        }
 
     })
 
