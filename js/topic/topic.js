@@ -1,7 +1,0 @@
-$(function (){
-
-    // todo topic list
-
-
-
-})

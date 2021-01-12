@@ -83,10 +83,10 @@
             const obj = $("#uploadImg")[0].files;
             const formData = new FormData();                      // 创建一个form类型的数据
 
-            formData.append('file', obj[0]);     // 获取上传文件的数据
+            formData.append('userfile', obj[0]);     // 获取上传文件的数据
 
             $.ajax({
-                "url": "http://localhost:8081/uploadImg",
+                "url": "http://139.198.186.81:8080",
                 "type": "",
                 method: "POST",
                 "processData": false, // 将数据转换成对象，不对数据做处理，故 processData: false
@@ -96,8 +96,8 @@
                 },
                 "data": formData,
                 success: function (res) {
-                    console.log(res)
-                    $('#answerContent').html($("#answerContent").text() + "<div>" + `<img style='max-width: 100%'   src = "http://` + res.data.yunFilePath + '"></div>')
+                    let resp = JSON.parse(res)
+                    $('#answerContent').html($("#answerContent").text() + "<div>" + `<img style='max-width: 100%'   src = "http://139.198.186.81:8080/getImg/` + resp.data.imgid + '"></div>')
                 },
                 error: function (data) {
                 }

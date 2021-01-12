@@ -118,7 +118,7 @@
                         </div>
                     </div>
                 </div>
-<!--                <div class="p-2 bg-secondary" style="min-height: 300px">hot topic</div>-->
+                <!--                <div class="p-2 bg-secondary" style="min-height: 300px">hot topic</div>-->
             </div>
         </div>
     </div>
@@ -133,8 +133,8 @@
         $.getUserInfo(function (userInfo) {
             console.log($isLogin)
             if ($isLogin) {
-                $("#userInfoVo .user_avator").attr("src",userInfo.avatar)
-                $("#usernameDiv").html("<h4>"+userInfo.username+"</h4>")
+                $("#userInfoVo .user_avator").attr("src", userInfo.avatar)
+                $("#usernameDiv").html("<h4>" + userInfo.username + "</h4>")
                 $("#login_form").hide()
                 $("#userInfoVo").show()
                 $("#createTopicDiv").show()
