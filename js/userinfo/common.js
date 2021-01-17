@@ -7,7 +7,7 @@
         getUserInfo: function (callBack) {
             $.ajax({
                 type: 'GET',
-                url: 'http://localhost:8081/user',
+                url: 'http://139.198.186.81:8081/user',
                 dataType: 'json',
                 contentType: "application/json;charset=UTF-8",
                 timeout: 1000,

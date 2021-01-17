@@ -58,7 +58,7 @@
 
         $.ajax({
             type: 'GET',
-            url: 'http://localhost:8081/topic?topicId=' + topicId,
+            url: 'http://139.198.186.81:8081/topic?topicId=' + topicId,
             contentType: "application/json;charset=UTF-8",
             timeout: 1000,
             xhrFields: {
@@ -117,7 +117,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: 'http://localhost:8081/answer',
+                url: 'http://139.198.186.81:8081/answer',
                 dataType: 'json',
                 data: JSON.stringify(answer),
                 contentType: "application/json;charset=UTF-8",
