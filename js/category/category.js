@@ -135,4 +135,8 @@ $(function () {
 
     topicList(0, "")
 
+    $("#searchTopic").click(function (){
+       topicList(0, $("#SearchVal").val())
+    })
+
 })
