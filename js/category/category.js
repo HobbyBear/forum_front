@@ -81,6 +81,7 @@ $(function () {
             success: function (result) {
                 console.log(result)
                 if (result.code === 200) {
+                    alert("create topic success")
                     topicList(0, "")
                 } else {
                     alert(result.msg)
