@@ -39,15 +39,9 @@
        <div class="col-md-2" >
 
        </div>
-       <div id="voice"  class="col-md-6" style="height: 300px;margin: 200px 0;border: 1px solid gray ">
-           If you were a teardrop;In my eye,
+       <textarea id="voice"  class="col-md-6" style="height: 300px;margin: 200px 0;border: 1px solid gray " cols="100" rows="50">
 
-           For fear of losing you,I would never cry.
-
-           And if the golden sun,Should cease to shine its light,
-
-           Just one smile from you,Would make my whole world bright.
-       </div>
+       </textarea >
        <div class="col-md-2" >
 
        </div>
@@ -78,7 +72,7 @@
 
 
     function handleSpeak(e) {
-        msg.text = document.getElementById("voice").innerText
+        msg.text = $("#voice").val()
         synth.speak(msg)
     }
 
