@@ -8,7 +8,7 @@
 
         $.ajax({
             type: 'POST',
-            url: 'http://139.198.186.81:8081/user/login',
+            url: 'http://localhost:8081/user/login',
             data: JSON.stringify(user),
             dataType: 'json',
             contentType: "application/json;charset=UTF-8",
@@ -19,6 +19,9 @@
             success: function (result) {
                 console.log(result)
                 if (result.code === 200) {
+                    // setTimeout(function (){
+                    //     window.location.reload()
+                    // },2000)
                     window.location.reload()
                 }else {
                     alert(result.msg)
@@ -34,7 +37,7 @@
 
         $.ajax({
             type: 'POST',
-            url: 'http://139.198.186.81:8081/user/regByPwd',
+            url: 'http://localhost:8081/user/regByPwd',
             data: JSON.stringify(user),
             dataType: 'json',
             contentType: "application/json;charset=UTF-8",
