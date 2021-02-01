@@ -74,7 +74,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: 'http://139.198.186.81/:8081/comment/create_comment',
+                url: 'http://139.198.186.81:8081/comment/create_comment',
                 contentType: "application/json;charset=UTF-8",
                 dataType: 'json',
                 data: JSON.stringify(createCommentReq),
@@ -107,7 +107,7 @@
 
             $.ajax({
                 type: 'GET',
-                url: 'http://139.198.186.81/:8081/comment/list?level=0&answerId=' + answerId,
+                url: 'http://139.198.186.81:8081/comment/list?level=0&answerId=' + answerId,
                 contentType: "application/json;charset=UTF-8",
                 timeout: 1000,
                 xhrFields: {
@@ -201,7 +201,7 @@
         function dianzanOrNot(answerId) {
             $.ajax({
                 type: 'GET',
-                url: 'http://139.198.186.81/:8081/answer/praise_answer?answerId=' + answerId,
+                url: 'http://139.198.186.81:8081/answer/praise_answer?answerId=' + answerId,
                 contentType: "application/json;charset=UTF-8",
                 timeout: 1000,
                 xhrFields: {
@@ -234,7 +234,7 @@
 
             $.ajax({
                 type: 'GET',
-                url: 'http://139.198.186.81/:8081/answer/list?topicId=' + topicId,
+                url: 'http://139.198.186.81:8081/answer/list?topicId=' + topicId,
                 contentType: "application/json;charset=UTF-8",
                 timeout: 1000,
                 xhrFields: {
@@ -288,7 +288,7 @@
 
         $.ajax({
             type: 'GET',
-            url: 'http://139.198.186.81/:8081/topic?topicId=' + topicId,
+            url: 'http://139.198.186.81:8081/topic?topicId=' + topicId,
             contentType: "application/json;charset=UTF-8",
             timeout: 1000,
             xhrFields: {
