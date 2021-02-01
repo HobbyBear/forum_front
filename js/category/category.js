@@ -9,7 +9,7 @@ $(function () {
 
         $.ajax({
             type: 'POST',
-            url: 'http://localhost:8081/topic/list',
+            url: 'http://139.198.186.81/:8081/topic/list',
             dataType: 'json',
             data: JSON.stringify(topicReq),
             contentType: "application/json;charset=UTF-8",
@@ -70,7 +70,7 @@ $(function () {
 
         $.ajax({
             type: 'POST',
-            url: 'http://localhost:8081/topic',
+            url: 'http://139.198.186.81/:8081/topic',
             dataType: 'json',
             data: JSON.stringify(topic),
             contentType: "application/json;charset=UTF-8",
@@ -95,7 +95,7 @@ $(function () {
 
         $.ajax({
             type: 'GET',
-            url: 'http://localhost:8081/category/category_list',
+            url: 'http://139.198.186.81/:8081/category/category_list',
             contentType: "application/json;charset=UTF-8",
             timeout: 1000,
             xhrFields: {

@@ -8,7 +8,7 @@
 
         $.ajax({
             type: 'POST',
-            url: 'http://localhost:8081/user/login',
+            url: 'http://139.198.186.81/:8081/user/login',
             data: JSON.stringify(user),
             dataType: 'json',
             contentType: "application/json;charset=UTF-8",
@@ -37,7 +37,7 @@
 
         $.ajax({
             type: 'POST',
-            url: 'http://localhost:8081/user/regByPwd',
+            url: 'http://139.198.186.81/:8081/user/regByPwd',
             data: JSON.stringify(user),
             dataType: 'json',
             contentType: "application/json;charset=UTF-8",
